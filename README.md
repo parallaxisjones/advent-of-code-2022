@@ -15,7 +15,14 @@ Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.
 <!--- advent_readme_stars table --->
 
 ---
+| Day | Part 1 | Part 2 |
+| :---: | :---: | :---: |
+| [Day 1](https://adventofcode.com/2022/day/1) | 710.10µs | 733.37µs |
+| [Day 2](https://adventofcode.com/2022/day/2) | 636.66µs | 696.01µs |
+| [Day 3](https://adventofcode.com/2022/day/3) | 221.06µs | 152.48µs |
+| [Day 4](https://adventofcode.com/2022/day/4) | 4.12ms | 4.13ms |
 
+---
 ## Template setup
 
 This template supports all major OS (macOS, Linux, Windows).
