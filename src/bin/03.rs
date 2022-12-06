@@ -21,9 +21,9 @@ fn priority(char_code: u8) -> u8 {
 
 
 fn bucket_line(l: &str) -> Option<u32> {
-    let parts = l.split_at(l.len() / 2);
-    let a = parts.0.as_bytes();
-    let b = parts.1.as_bytes();
+    let (a, b) = l.split_at(l.len() / 2);
+    let a = a.as_bytes();
+    let b = b.as_bytes();
     a.iter()
         .find(|byte| b.contains(byte))
         .map(|&byte| priority(byte) as u32)
@@ -38,19 +38,18 @@ pub fn part_one(input: &str) -> Option<u32> {
 }
 
 pub fn part_two(input: &str) -> Option<u32> {
-    let prios = parse(input)
-        .chunks(3)
-        .filter_map(|chunks| {
-            let mut chunks = chunks.iter();
-            let a = chunks.next()?.as_bytes();
-            let b = chunks.next()?.as_bytes();
-            let c = chunks.next()?.as_bytes();
-            a.iter()
-                .find(|byte| b.contains(byte) && c.contains(byte))
-                .map(|&byte| score_char(byte) as u32)
-        })
-        .sum();
-    Some(prios)
+    Some(parse(input)
+    .chunks(3)
+    .filter_map(|chunks| {
+        let mut chunks = chunks.iter();
+        let a = chunks.next()?.as_bytes();
+        let b = chunks.next()?.as_bytes();
+        let c = chunks.next()?.as_bytes();
+        a.iter()
+            .find(|byte| b.contains(byte) && c.contains(byte))
+            .map(|&byte| score_char(byte) as u32)
+    })
+    .sum())
 }
 
 fn main() {
